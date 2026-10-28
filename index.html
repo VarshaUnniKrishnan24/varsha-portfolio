@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Varsha U</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">Varsha U</div>
+    <div class="nav-logo">V<span>.</span></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
       <li><a href="#work">Work</a></li>
@@ -26,19 +31,48 @@
 
   <!-- HERO -->
   <section id="hero">
+    <canvas id="heroCanvas"></canvas>
     <div class="hero-content">
-      <h1>Varsha U</h1>
-      <p class="hero-role">Data Engineer</p>
-      <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Palakkad, Kerala</p>
+      <p class="hero-intro">Hi, I'm</p>
+      <h1 class="hero-name">
+        <span class="name-line">Varsha</span>
+        <span class="name-line">U<span class="name-cursor">_</span></span>
+      </h1>
+      <div class="hero-tags">
+        <span class="htag">Data Engineer</span>
+        <span class="htag-sep">·</span>
+        <span class="htag">AWS</span>
+        <span class="htag-sep">·</span>
+        <span class="htag">GenAI</span>
+        <span class="htag-sep">·</span>
+        <span class="htag">Kerala, India</span>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+    <div class="hero-side-text">
+      <span>varshaunni24@gmail.com</span>
     </div>
   </section>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <div class="about-strip-inner">
+      <p>1.9 years building AWS-native data pipelines &amp; backend services — with hands-on production experience in Generative AI.</p>
+    </div>
+  </div>
 
   <!-- WORK -->
   <section id="work">
     <div class="container">
-      <h2 class="section-title">Work</h2>
-      <div class="work-list">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Work</h2>
+      </div>
 
+      <div class="work-list">
         <div class="work-item" onclick="toggleWork(this)">
           <div class="work-summary">
             <div class="work-left">
@@ -47,13 +81,13 @@
             </div>
             <div class="work-right">
               <span class="work-period">Jun 2025 – Present</span>
-              <i class="fas fa-chevron-down work-arrow"></i>
+              <div class="work-toggle-btn"><i class="fas fa-plus"></i></div>
             </div>
           </div>
           <div class="work-detail">
             <ul>
               <li>Built core REST API endpoints on AWS Lambda backed by DynamoDB and OpenSearch</li>
-              <li>Designed a surge-detection pipeline consuming DynamoDB Streams, comparing OldImage/NewImage deltas in-memory to flag engagement spikes with zero additional reads</li>
+              <li>Designed a surge-detection pipeline consuming DynamoDB Streams — comparing OldImage/NewImage deltas in-memory to flag engagement spikes with zero additional reads</li>
               <li>Used conditional compare-and-swap writes to guarantee exactly-once alert firing per keyword</li>
               <li>Provisioned DynamoDB with Streams + GSI for real-time trending queries and hourly rollups</li>
               <li>Designed Step Functions state machines orchestrating trend-ranking and surge-detection workflows</li>
@@ -67,7 +101,7 @@
             </ul>
             <div class="work-tags">
               <span>AWS Lambda</span><span>DynamoDB</span><span>OpenSearch</span><span>Step Functions</span>
-              <span>EventBridge</span><span>Terraform</span><span>Gemini API</span><span>GitHub Actions</span>
+              <span>EventBridge</span><span>Terraform</span><span>Gemini API</span><span>GitHub Actions</span><span>CloudWatch</span>
             </div>
           </div>
         </div>
@@ -80,7 +114,7 @@
             </div>
             <div class="work-right">
               <span class="work-period">Nov 2024 – May 2025</span>
-              <i class="fas fa-chevron-down work-arrow"></i>
+              <div class="work-toggle-btn"><i class="fas fa-plus"></i></div>
             </div>
           </div>
           <div class="work-detail">
@@ -104,7 +138,7 @@
             </div>
             <div class="work-right">
               <span class="work-period">Jul 2024 · Remote</span>
-              <i class="fas fa-chevron-down work-arrow"></i>
+              <div class="work-toggle-btn"><i class="fas fa-plus"></i></div>
             </div>
           </div>
           <div class="work-detail">
@@ -118,7 +152,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -126,58 +159,101 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
 
-      <h3 class="sub-heading">Work Projects</h3>
+      <p class="section-sub">Click any project to see the full breakdown.</p>
+
+      <h3 class="sub-label">Work Projects</h3>
       <div class="projects-grid">
-
-        <div class="project-card" onclick="openModal('trendscout')">
-          <div class="project-icon">📡</div>
-          <h4>TrendScout</h4>
-          <p>Serverless trend-analytics platform ingesting from Twitter/X, Reddit, YouTube and RSS in real time.</p>
-          <div class="project-tags"><span>Production</span><span>AWS</span><span>Gemini API</span></div>
+        <div class="project-card featured" onclick="openModal('trendscout')">
+          <div class="project-card-bg"></div>
+          <div class="project-card-content">
+            <span class="project-num">01</span>
+            <div class="project-icon">📡</div>
+            <h4>TrendScout</h4>
+            <p>Serverless trend-analytics platform ingesting from Twitter/X, Reddit, YouTube and RSS in real time. 35+ Lambda functions, surge detection, Gemini-powered classification.</p>
+            <div class="project-footer">
+              <div class="project-tags"><span>Production</span><span>AWS</span><span>Gemini API</span></div>
+              <span class="project-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
         </div>
 
         <div class="project-card" onclick="openModal('library')">
-          <div class="project-icon">📚</div>
-          <h4>Library Checkout Pipeline</h4>
-          <p>AWS data pipeline for library checkout data with full-load and incremental CDC processing.</p>
-          <div class="project-tags"><span>AWS</span><span>ETL</span><span>MySQL</span></div>
+          <div class="project-card-bg"></div>
+          <div class="project-card-content">
+            <span class="project-num">02</span>
+            <div class="project-icon">📚</div>
+            <h4>Library Checkout Pipeline</h4>
+            <p>AWS data pipeline for library checkout data with full-load and incremental CDC processing, automated ETL, and VPC networking.</p>
+            <div class="project-footer">
+              <div class="project-tags"><span>AWS</span><span>ETL</span><span>MySQL</span></div>
+              <span class="project-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
         </div>
-
       </div>
 
-      <h3 class="sub-heading" style="margin-top:3rem;">Academic Projects</h3>
+      <h3 class="sub-label" style="margin-top:3.5rem;">Academic Projects</h3>
       <div class="projects-grid">
-
         <div class="project-card" onclick="openModal('physio')">
-          <div class="project-icon">💓</div>
-          <h4>Physiological Data Pipeline</h4>
-          <p>Multi-modal sensor sync pipeline handling 2.7GB of ECG, PPG and EDA data across 4 sampling rates.</p>
-          <div class="project-tags"><span>Signal Processing</span><span>Python</span></div>
+          <div class="project-card-bg"></div>
+          <div class="project-card-content">
+            <span class="project-num">03</span>
+            <div class="project-icon">💓</div>
+            <h4>Physiological Data Pipeline</h4>
+            <p>Multi-modal sensor sync pipeline handling 2.7GB of ECG, PPG and EDA data across 4 sampling rates with clock-drift alignment.</p>
+            <div class="project-footer">
+              <div class="project-tags"><span>Signal Processing</span><span>Python</span></div>
+              <span class="project-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
         </div>
 
         <div class="project-card" onclick="openModal('retail')">
-          <div class="project-icon">🛒</div>
-          <h4>Retail Store Chain Analysis</h4>
-          <p>Large-scale retail analytics pipeline covering sales, customer behavior and regional trends.</p>
-          <div class="project-tags"><span>PySpark</span><span>PostgreSQL</span></div>
+          <div class="project-card-bg"></div>
+          <div class="project-card-content">
+            <span class="project-num">04</span>
+            <div class="project-icon">🛒</div>
+            <h4>Retail Store Chain Analysis</h4>
+            <p>Large-scale retail analytics pipeline covering sales, customer behavior and regional trends with PySpark and forecasting.</p>
+            <div class="project-footer">
+              <div class="project-tags"><span>PySpark</span><span>PostgreSQL</span></div>
+              <span class="project-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
         </div>
 
         <div class="project-card" onclick="openModal('essay')">
-          <div class="project-icon">✍️</div>
-          <h4>Automated Essay Scoring</h4>
-          <p>LSTM-based essay quality scoring system with NLP preprocessing and a Flask web interface.</p>
-          <div class="project-tags"><span>LSTM</span><span>NLP</span><span>Flask</span></div>
+          <div class="project-card-bg"></div>
+          <div class="project-card-content">
+            <span class="project-num">05</span>
+            <div class="project-icon">✍️</div>
+            <h4>Automated Essay Scoring</h4>
+            <p>LSTM-based essay quality scoring system with NLP preprocessing and a Flask web interface for accessible scoring.</p>
+            <div class="project-footer">
+              <div class="project-tags"><span>LSTM</span><span>NLP</span><span>Flask</span></div>
+              <span class="project-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
         </div>
 
         <div class="project-card" onclick="openModal('olympics')">
-          <div class="project-icon">🏅</div>
-          <h4>Olympics Medal Predictor</h4>
-          <p>ML app predicting medal outcomes from historical Olympics data with a Streamlit dashboard.</p>
-          <div class="project-tags"><span>ML</span><span>Streamlit</span></div>
+          <div class="project-card-bg"></div>
+          <div class="project-card-content">
+            <span class="project-num">06</span>
+            <div class="project-icon">🏅</div>
+            <h4>Olympics Medal Predictor</h4>
+            <p>ML app predicting medal outcomes from historical Olympics data with an interactive Streamlit dashboard.</p>
+            <div class="project-footer">
+              <div class="project-tags"><span>ML</span><span>Streamlit</span></div>
+              <span class="project-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -185,37 +261,38 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="container">
-      <h2 class="section-title">Education</h2>
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <p class="section-sub">Click to see subjects and scores.</p>
+
       <div class="edu-list">
-
-        <div class="edu-item" onclick="openModal('mca')">
-          <div class="edu-main">
-            <div>
-              <h3>Master of Computer Applications</h3>
-              <span class="edu-uni">APJ Abdul Kalam Technological University</span>
-            </div>
-            <div class="edu-right">
-              <span class="edu-period">2022 – 2024</span>
-              <span class="edu-score">90%</span>
-            </div>
+        <div class="edu-card" onclick="openModal('mca')">
+          <div class="edu-year">2022 – 2024</div>
+          <div class="edu-body">
+            <h3>Master of Computer Applications</h3>
+            <span class="edu-uni">APJ Abdul Kalam Technological University</span>
+            <p class="edu-note">Top 5 of class</p>
           </div>
-          <p class="edu-note">Top 5 of class · Click to see subjects and scores</p>
+          <div class="edu-score-block">
+            <span class="edu-score">90%</span>
+            <span class="edu-cta">View details <i class="fas fa-arrow-right"></i></span>
+          </div>
         </div>
 
-        <div class="edu-item" onclick="openModal('bca')">
-          <div class="edu-main">
-            <div>
-              <h3>Bachelor of Computer Applications</h3>
-              <span class="edu-uni">Calicut University</span>
-            </div>
-            <div class="edu-right">
-              <span class="edu-period">2019 – 2022</span>
-              <span class="edu-score">91%</span>
-            </div>
+        <div class="edu-card" onclick="openModal('bca')">
+          <div class="edu-year">2019 – 2022</div>
+          <div class="edu-body">
+            <h3>Bachelor of Computer Applications</h3>
+            <span class="edu-uni">Calicut University</span>
+            <p class="edu-note">University 3rd Rank · Chief Minister's Student Excellence Award</p>
           </div>
-          <p class="edu-note">University 3rd Rank · Chief Minister's Student Excellence Award · Click to see subjects and scores</p>
+          <div class="edu-score-block">
+            <span class="edu-score">91%</span>
+            <span class="edu-cta">View details <i class="fas fa-arrow-right"></i></span>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -223,16 +300,19 @@
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="container">
-      <h2 class="section-title">Certifications</h2>
-      <div class="cert-list">
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">AWS Skill Builder — Data Engineering & Cloud Learning Path</span><span class="cert-issuer">Amazon Web Services</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Data Engineering Professional Learning Path</span><span class="cert-issuer">Udemy — SQL, Python, Spark & Git</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Microsoft Certified: Azure AI Fundamentals (AI-900)</span><span class="cert-issuer">Microsoft</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Agentic AI</span><span class="cert-issuer">DeepLearning.AI</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Data Analytics and Visualization Job Simulation</span><span class="cert-issuer">Accenture</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Power BI Job Simulation</span><span class="cert-issuer">PwC Switzerland</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Joy of Computing Using Python</span><span class="cert-issuer">NPTEL / IIT Madras</span></div></div>
-        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Database Management System</span><span class="cert-issuer">NPTEL / IIT Kharagpur</span></div></div>
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">AWS Skill Builder — Data Engineering & Cloud Learning Path</div><div class="cert-issuer">Amazon Web Services</div></div></div>
+        <div class="cert-card"><div class="cert-icon">📊</div><div><div class="cert-name">Data Engineering Professional Learning Path</div><div class="cert-issuer">Udemy — SQL, Python, Spark & Git</div></div></div>
+        <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-name">Microsoft Certified: Azure AI Fundamentals (AI-900)</div><div class="cert-issuer">Microsoft</div></div></div>
+        <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Agentic AI</div><div class="cert-issuer">DeepLearning.AI</div></div></div>
+        <div class="cert-card"><div class="cert-icon">📈</div><div><div class="cert-name">Data Analytics and Visualization Job Simulation</div><div class="cert-issuer">Accenture</div></div></div>
+        <div class="cert-card"><div class="cert-icon">📉</div><div><div class="cert-name">Power BI Job Simulation</div><div class="cert-issuer">PwC Switzerland</div></div></div>
+        <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Joy of Computing Using Python</div><div class="cert-issuer">NPTEL / IIT Madras</div></div></div>
+        <div class="cert-card"><div class="cert-icon">🗄️</div><div><div class="cert-name">Database Management System</div><div class="cert-issuer">NPTEL / IIT Kharagpur</div></div></div>
       </div>
     </div>
   </section>
@@ -240,9 +320,12 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="container">
-      <h2 class="section-title">Skills</h2>
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Skills</h2>
+      </div>
       <div class="skills-grid">
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h4>AWS & Cloud</h4>
           <div class="skill-pills">
             <span>Lambda</span><span>DynamoDB</span><span>S3</span><span>Glue</span><span>Step Functions</span>
@@ -250,32 +333,32 @@
             <span>IAM</span><span>RDS</span><span>Athena</span><span>EC2</span><span>SageMaker</span>
           </div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h4>Languages & Data</h4>
           <div class="skill-pills">
             <span>Python</span><span>SQL</span><span>PySpark</span><span>Pandas</span><span>NumPy</span>
           </div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h4>AI / ML</h4>
           <div class="skill-pills">
             <span>Gemini API</span><span>TensorFlow</span><span>Scikit-learn</span><span>NLP</span>
             <span>LSTM</span><span>Claude Code</span><span>RAG</span><span>Prompt Engineering</span>
           </div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h4>DevOps & Infra</h4>
           <div class="skill-pills">
             <span>Terraform</span><span>GitHub Actions</span><span>CI/CD</span><span>AWS OIDC</span><span>Linux</span>
           </div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h4>Databases</h4>
           <div class="skill-pills">
             <span>DynamoDB</span><span>PostgreSQL</span><span>MySQL</span><span>OpenSearch</span>
           </div>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h4>Other</h4>
           <div class="skill-pills">
             <span>REST APIs</span><span>ETL Design</span><span>Data Modeling</span><span>Pydantic</span>
@@ -289,18 +372,33 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-list">
-        <a href="mailto:varshaunni24@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> varshaunni24@gmail.com</a>
-        <a href="tel:+916235404530" class="contact-item"><i class="fas fa-phone"></i> +91 6235404530</a>
-        <a href="https://linkedin.com/in/varshaunnikrishnan" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/VarshaUnniKrishnan24" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:varshaunni24@gmail.com" class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <span>varshaunni24@gmail.com</span>
+        </a>
+        <a href="tel:+916235404530" class="contact-card">
+          <i class="fas fa-phone"></i>
+          <span>+91 6235404530</span>
+        </a>
+        <a href="https://linkedin.com/in/varshaunnikrishnan" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/VarshaUnniKrishnan24" target="_blank" class="contact-card">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>Varsha U · Palakkad, Kerala</p>
+    <p>Varsha U &nbsp;·&nbsp; Palakkad, Kerala</p>
   </footer>
 
   <!-- PROJECT MODAL -->
