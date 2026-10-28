@@ -3,119 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Varsha U | Data Engineer</title>
+  <title>Varsha U</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">VU<span class="logo-dot">.</span></div>
+    <div class="nav-logo">Varsha U</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
-      <li><a href="#story">My Story</a></li>
-      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact" class="nav-cta">Say Hello</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
   </nav>
 
-  <!-- ═══════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════ -->
+  <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg-grid"></div>
     <div class="hero-content">
-      <div class="hero-badge"><span class="badge-dot"></span> Open to opportunities</div>
-      <h1 class="hero-name">Varsha U</h1>
-      <h2 class="hero-title"><span class="typed-text"></span><span class="cursor">|</span></h2>
-      <p class="hero-sub">I build data pipelines that scale, systems that self-heal,<br/>and ship GenAI to production — not just notebooks.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> See My Work</a>
-        <a href="#story" class="btn btn-ghost">My Journey <i class="fas fa-arrow-down"></i></a>
-      </div>
+      <h1>Varsha U</h1>
+      <p class="hero-role">Data Engineer</p>
+      <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Palakkad, Kerala</p>
     </div>
-    <div class="hero-orbs">
-      <div class="orb orb1"></div>
-      <div class="orb orb2"></div>
-      <div class="orb orb3"></div>
-    </div>
-    <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       MY STORY (timeline journey)
-  ═══════════════════════════════════════════ -->
-  <section id="story">
+  <!-- WORK -->
+  <section id="work">
     <div class="container">
-      <div class="section-label">The Journey</div>
-      <h2 class="section-title">My Story</h2>
-      <p class="section-sub">From a curious student in Kerala to shipping production data systems on AWS — here's how it happened.</p>
+      <h2 class="section-title">Work</h2>
+      <div class="work-list">
 
-      <div class="journey-timeline">
-
-        <div class="journey-item" data-year="2019">
-          <div class="journey-dot"></div>
-          <div class="journey-card">
-            <span class="journey-year">2019</span>
-            <h3>Started BCA</h3>
-            <p>Began my computer science journey at Calicut University. Fell in love with programming and data.</p>
-            <div class="journey-tags"><span>BCA</span><span>Calicut University</span></div>
+        <div class="work-item" onclick="toggleWork(this)">
+          <div class="work-summary">
+            <div class="work-left">
+              <span class="work-role">Data Engineer</span>
+              <span class="work-company">Edstem Technologies</span>
+            </div>
+            <div class="work-right">
+              <span class="work-period">Jun 2025 – Present</span>
+              <i class="fas fa-chevron-down work-arrow"></i>
+            </div>
+          </div>
+          <div class="work-detail">
+            <ul>
+              <li>Built core REST API endpoints on AWS Lambda backed by DynamoDB and OpenSearch</li>
+              <li>Designed a surge-detection pipeline consuming DynamoDB Streams, comparing OldImage/NewImage deltas in-memory to flag engagement spikes with zero additional reads</li>
+              <li>Used conditional compare-and-swap writes to guarantee exactly-once alert firing per keyword</li>
+              <li>Provisioned DynamoDB with Streams + GSI for real-time trending queries and hourly rollups</li>
+              <li>Designed Step Functions state machines orchestrating trend-ranking and surge-detection workflows</li>
+              <li>Authored Terraform modules and CI/CD pipelines via GitHub Actions with AWS OIDC federation</li>
+              <li>Integrated Gemini API for real-time topic classification with time-boxing logic to meet Lambda deadlines</li>
+              <li>Used Claude Code across the full SDLC — scaffolding, debugging, test coverage, code review</li>
+              <li>Cut read cost on a high-traffic write path by replacing full table scan with a targeted COUNT query</li>
+              <li>Diagnosed and fixed production defects including a re-fetch overwrite bug and OpenSearch concurrency conflicts</li>
+              <li>Rolled out versioned API routes with deprecation headers with zero disruption to existing clients</li>
+              <li>Set up rate limiting, IAM least-privilege access controls, and CloudWatch alarms for production</li>
+            </ul>
+            <div class="work-tags">
+              <span>AWS Lambda</span><span>DynamoDB</span><span>OpenSearch</span><span>Step Functions</span>
+              <span>EventBridge</span><span>Terraform</span><span>Gemini API</span><span>GitHub Actions</span>
+            </div>
           </div>
         </div>
 
-        <div class="journey-item" data-year="2022">
-          <div class="journey-dot"></div>
-          <div class="journey-card">
-            <span class="journey-year">2022</span>
-            <h3>Graduated with University 3rd Rank 🏆</h3>
-            <p>Completed BCA with 91%, earning the Chief Minister's Student Excellence Award.</p>
-            <div class="journey-tags"><span>91%</span><span>University Rank 3</span><span>CM Award</span></div>
+        <div class="work-item" onclick="toggleWork(this)">
+          <div class="work-summary">
+            <div class="work-left">
+              <span class="work-role">Software Associate</span>
+              <span class="work-company">Edstem Technologies</span>
+            </div>
+            <div class="work-right">
+              <span class="work-period">Nov 2024 – May 2025</span>
+              <i class="fas fa-chevron-down work-arrow"></i>
+            </div>
+          </div>
+          <div class="work-detail">
+            <ul>
+              <li>Training in data engineering using Python, SQL, PySpark, and AWS services</li>
+              <li>Built end-to-end data pipelines covering ingestion, transformation, and analytics</li>
+              <li>Worked on projects in retail analytics, library systems, and health data</li>
+              <li>Used AWS Lambda, Glue, S3, RDS, and PostgreSQL across projects</li>
+            </ul>
+            <div class="work-tags">
+              <span>Python</span><span>PySpark</span><span>AWS Glue</span><span>S3</span><span>RDS</span><span>PostgreSQL</span>
+            </div>
           </div>
         </div>
 
-        <div class="journey-item" data-year="2022">
-          <div class="journey-dot"></div>
-          <div class="journey-card">
-            <span class="journey-year">2022 – 2024</span>
-            <h3>MCA — Deep Dive into CS</h3>
-            <p>Pursued MCA at APJ Abdul Kalam Technological University. Explored ML, deep learning, NLP, and cloud.</p>
-            <div class="journey-tags"><span>MCA</span><span>KTU</span><span>ML</span><span>NLP</span></div>
+        <div class="work-item" onclick="toggleWork(this)">
+          <div class="work-summary">
+            <div class="work-left">
+              <span class="work-role">Data Science Intern</span>
+              <span class="work-company">Prodigy InfoTech</span>
+            </div>
+            <div class="work-right">
+              <span class="work-period">Jul 2024 · Remote</span>
+              <i class="fas fa-chevron-down work-arrow"></i>
+            </div>
           </div>
-        </div>
-
-        <div class="journey-item" data-year="2024">
-          <div class="journey-dot"></div>
-          <div class="journey-card">
-            <span class="journey-year">Jul 2024</span>
-            <h3>First Industry Exposure</h3>
-            <p>Data Science Intern at Prodigy InfoTech — built classifiers, ran sentiment analysis, visualized real-world datasets.</p>
-            <div class="journey-tags"><span>Python</span><span>Scikit-learn</span><span>NLP</span></div>
-          </div>
-        </div>
-
-        <div class="journey-item" data-year="2024">
-          <div class="journey-dot"></div>
-          <div class="journey-card">
-            <span class="journey-year">Nov 2024</span>
-            <h3>Joined Edstem Technologies</h3>
-            <p>Started as Software Associate — intensive training in AWS, PySpark, SQL, and end-to-end pipeline design.</p>
-            <div class="journey-tags"><span>AWS</span><span>PySpark</span><span>ETL</span></div>
-          </div>
-        </div>
-
-        <div class="journey-item active" data-year="2025">
-          <div class="journey-dot"></div>
-          <div class="journey-card highlight">
-            <span class="journey-year">Jun 2025 — Now</span>
-            <h3>Data Engineer 🚀</h3>
-            <p>Promoted to Data Engineer. Building production-grade serverless systems, integrating Gemini API, and shipping real GenAI features.</p>
-            <div class="journey-tags"><span>Lambda</span><span>DynamoDB</span><span>Gemini API</span><span>Terraform</span></div>
+          <div class="work-detail">
+            <ul>
+              <li>Cleaned, explored, and visualized datasets using Python, Pandas, NumPy, Matplotlib, and Seaborn</li>
+              <li>Built a Decision Tree classifier and performed sentiment analysis using Scikit-learn and VADER</li>
+              <li>Analyzed traffic accident and population datasets using GeoPandas</li>
+            </ul>
+            <div class="work-tags">
+              <span>Python</span><span>Scikit-learn</span><span>VADER</span><span>GeoPandas</span><span>Seaborn</span>
+            </div>
           </div>
         </div>
 
@@ -123,286 +123,187 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       EXPERIENCE
-  ═══════════════════════════════════════════ -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-label">Where I've Worked</div>
-      <h2 class="section-title">Experience</h2>
-
-      <div class="exp-cards">
-
-        <div class="exp-card active-role">
-          <div class="exp-card-header">
-            <div>
-              <div class="exp-role">Data Engineer</div>
-              <div class="exp-company">Edstem Technologies</div>
-              <div class="exp-period"><i class="fas fa-calendar-alt"></i> Jun 2025 – Present &nbsp;·&nbsp; Kerala, India</div>
-            </div>
-            <div class="exp-badge current">Current</div>
-          </div>
-          <ul class="exp-highlights">
-            <li>Built 35+ Lambda functions powering a serverless trend-analytics platform</li>
-            <li>Designed surge-detection pipeline with exactly-once alert firing via DynamoDB Streams</li>
-            <li>Integrated Gemini API for real-time topic classification in production</li>
-            <li>Authored Terraform modules + CI/CD via GitHub Actions with AWS OIDC</li>
-            <li>Used Claude Code across the full SDLC — scaffolding to code review</li>
-          </ul>
-          <div class="exp-tags">
-            <span>AWS Lambda</span><span>DynamoDB</span><span>OpenSearch</span><span>Terraform</span><span>Gemini API</span><span>Step Functions</span>
-          </div>
-        </div>
-
-        <div class="exp-card">
-          <div class="exp-card-header">
-            <div>
-              <div class="exp-role">Software Associate</div>
-              <div class="exp-company">Edstem Technologies</div>
-              <div class="exp-period"><i class="fas fa-calendar-alt"></i> Nov 2024 – May 2025 &nbsp;·&nbsp; Kerala, India</div>
-            </div>
-          </div>
-          <ul class="exp-highlights">
-            <li>Intensive training in Python, SQL, PySpark, and AWS services</li>
-            <li>Built end-to-end pipelines: ingestion → transformation → analytics</li>
-            <li>Projects in retail analytics, library systems, and health data</li>
-          </ul>
-          <div class="exp-tags">
-            <span>Python</span><span>PySpark</span><span>AWS Glue</span><span>S3</span><span>RDS</span><span>PostgreSQL</span>
-          </div>
-        </div>
-
-        <div class="exp-card">
-          <div class="exp-card-header">
-            <div>
-              <div class="exp-role">Data Science Intern</div>
-              <div class="exp-company">Prodigy InfoTech</div>
-              <div class="exp-period"><i class="fas fa-calendar-alt"></i> Jul 2024 &nbsp;·&nbsp; Remote</div>
-            </div>
-          </div>
-          <ul class="exp-highlights">
-            <li>EDA and visualization on real-world datasets using Pandas, Matplotlib, Seaborn</li>
-            <li>Built Decision Tree classifier and ran sentiment analysis with VADER</li>
-            <li>Geospatial analysis on traffic and population data using GeoPandas</li>
-          </ul>
-          <div class="exp-tags">
-            <span>Python</span><span>Scikit-learn</span><span>VADER</span><span>GeoPandas</span><span>Seaborn</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       PROJECTS
-  ═══════════════════════════════════════════ -->
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <div class="section-label">What I've Built</div>
       <h2 class="section-title">Projects</h2>
-      <p class="section-sub">Click any project to see the full breakdown — architecture, decisions, and what I learned.</p>
 
+      <h3 class="sub-heading">Work Projects</h3>
       <div class="projects-grid">
 
-        <div class="project-card featured" onclick="openProject('trendscout')">
-          <div class="project-card-inner">
-            <div class="project-top">
-              <span class="project-badge prod">Production</span>
-              <div class="project-links">
-                <span class="project-expand"><i class="fas fa-expand-alt"></i> Details</span>
-              </div>
-            </div>
-            <div class="project-icon">📡</div>
-            <h3>TrendScout</h3>
-            <p>Serverless trend-analytics platform ingesting from Twitter/X, Reddit, YouTube & RSS. Real-time surge detection, Gemini-powered topic classification, tiered storage.</p>
-            <div class="project-stack">
-              <span>AWS Lambda</span><span>DynamoDB</span><span>OpenSearch</span><span>Gemini API</span><span>Step Functions</span><span>Terraform</span>
-            </div>
-          </div>
+        <div class="project-card" onclick="openModal('trendscout')">
+          <div class="project-icon">📡</div>
+          <h4>TrendScout</h4>
+          <p>Serverless trend-analytics platform ingesting from Twitter/X, Reddit, YouTube and RSS in real time.</p>
+          <div class="project-tags"><span>Production</span><span>AWS</span><span>Gemini API</span></div>
         </div>
 
-        <div class="project-card" onclick="openProject('library')">
-          <div class="project-card-inner">
-            <div class="project-top">
-              <span class="project-badge aws">AWS</span>
-              <span class="project-expand"><i class="fas fa-expand-alt"></i> Details</span>
-            </div>
-            <div class="project-icon">📚</div>
-            <h3>Library Checkout Pipeline</h3>
-            <p>AWS data pipeline for library checkout data with CDC processing, staging layers, and automated ETL via Lambda and Glue.</p>
-            <div class="project-stack"><span>RDS</span><span>Lambda</span><span>S3</span><span>Glue</span><span>MySQL</span></div>
-          </div>
+        <div class="project-card" onclick="openModal('library')">
+          <div class="project-icon">📚</div>
+          <h4>Library Checkout Pipeline</h4>
+          <p>AWS data pipeline for library checkout data with full-load and incremental CDC processing.</p>
+          <div class="project-tags"><span>AWS</span><span>ETL</span><span>MySQL</span></div>
         </div>
 
-        <div class="project-card" onclick="openProject('physio')">
-          <div class="project-card-inner">
-            <div class="project-top">
-              <span class="project-badge ml">ML / Signal</span>
-              <span class="project-expand"><i class="fas fa-expand-alt"></i> Details</span>
-            </div>
-            <div class="project-icon">💓</div>
-            <h3>Physiological Data Pipeline</h3>
-            <p>Multi-modal sensor sync pipeline handling 2.7GB of ECG, PPG, EDA data across 4 sampling rates with clock-drift alignment.</p>
-            <div class="project-stack"><span>Python</span><span>Signal Processing</span><span>Pandas</span><span>NumPy</span></div>
-          </div>
+      </div>
+
+      <h3 class="sub-heading" style="margin-top:3rem;">Academic Projects</h3>
+      <div class="projects-grid">
+
+        <div class="project-card" onclick="openModal('physio')">
+          <div class="project-icon">💓</div>
+          <h4>Physiological Data Pipeline</h4>
+          <p>Multi-modal sensor sync pipeline handling 2.7GB of ECG, PPG and EDA data across 4 sampling rates.</p>
+          <div class="project-tags"><span>Signal Processing</span><span>Python</span></div>
         </div>
 
-        <div class="project-card" onclick="openProject('retail')">
-          <div class="project-card-inner">
-            <div class="project-top">
-              <span class="project-badge data">Analytics</span>
-              <span class="project-expand"><i class="fas fa-expand-alt"></i> Details</span>
-            </div>
-            <div class="project-icon">🛒</div>
-            <h3>Retail Store Chain Analysis</h3>
-            <p>Large-scale retail analytics pipeline — sales, customer behavior, regional trends with PySpark and forecasting.</p>
-            <div class="project-stack"><span>PySpark</span><span>PostgreSQL</span><span>Python</span></div>
-          </div>
+        <div class="project-card" onclick="openModal('retail')">
+          <div class="project-icon">🛒</div>
+          <h4>Retail Store Chain Analysis</h4>
+          <p>Large-scale retail analytics pipeline covering sales, customer behavior and regional trends.</p>
+          <div class="project-tags"><span>PySpark</span><span>PostgreSQL</span></div>
         </div>
 
-        <div class="project-card" onclick="openProject('essay')">
-          <div class="project-card-inner">
-            <div class="project-top">
-              <span class="project-badge ml">NLP / ML</span>
-              <span class="project-expand"><i class="fas fa-expand-alt"></i> Details</span>
-            </div>
-            <div class="project-icon">✍️</div>
-            <h3>Automated Essay Scoring</h3>
-            <p>LSTM-based essay quality scoring system with NLP preprocessing and a Flask web app for accessible scoring.</p>
-            <div class="project-stack"><span>LSTM</span><span>TensorFlow</span><span>NLP</span><span>Flask</span></div>
-          </div>
+        <div class="project-card" onclick="openModal('essay')">
+          <div class="project-icon">✍️</div>
+          <h4>Automated Essay Scoring</h4>
+          <p>LSTM-based essay quality scoring system with NLP preprocessing and a Flask web interface.</p>
+          <div class="project-tags"><span>LSTM</span><span>NLP</span><span>Flask</span></div>
         </div>
 
-        <div class="project-card" onclick="openProject('olympics')">
-          <div class="project-card-inner">
-            <div class="project-top">
-              <span class="project-badge data">ML / Viz</span>
-              <span class="project-expand"><i class="fas fa-expand-alt"></i> Details</span>
-            </div>
-            <div class="project-icon">🏅</div>
-            <h3>Olympics Medal Predictor</h3>
-            <p>ML app analyzing historical Olympics data with medal prediction and an interactive Streamlit visualization dashboard.</p>
-            <div class="project-stack"><span>Scikit-learn</span><span>Streamlit</span><span>Pandas</span></div>
-          </div>
+        <div class="project-card" onclick="openModal('olympics')">
+          <div class="project-icon">🏅</div>
+          <h4>Olympics Medal Predictor</h4>
+          <p>ML app predicting medal outcomes from historical Olympics data with a Streamlit dashboard.</p>
+          <div class="project-tags"><span>ML</span><span>Streamlit</span></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       EDUCATION
-  ═══════════════════════════════════════════ -->
+  <!-- EDUCATION -->
   <section id="education">
     <div class="container">
-      <div class="section-label">Academic Background</div>
       <h2 class="section-title">Education</h2>
-      <p class="section-sub">Click a degree to see subjects, scores, and highlights.</p>
+      <div class="edu-list">
 
-      <div class="edu-cards">
-
-        <div class="edu-card" onclick="openEdu('mca')">
-          <div class="edu-card-left">
-            <div class="edu-icon">🎓</div>
-            <div class="edu-line"></div>
+        <div class="edu-item" onclick="openModal('mca')">
+          <div class="edu-main">
+            <div>
+              <h3>Master of Computer Applications</h3>
+              <span class="edu-uni">APJ Abdul Kalam Technological University</span>
+            </div>
+            <div class="edu-right">
+              <span class="edu-period">2022 – 2024</span>
+              <span class="edu-score">90%</span>
+            </div>
           </div>
-          <div class="edu-card-body">
-            <div class="edu-year-badge">2022 – 2024</div>
-            <h3>Master of Computer Applications (MCA)</h3>
-            <div class="edu-uni">APJ Abdul Kalam Technological University</div>
-            <div class="edu-score">90% &nbsp;·&nbsp; Top 5 of class</div>
-            <p class="edu-preview">Deep learning, NLP, cloud computing, advanced algorithms and more — click to explore subjects & scores.</p>
-            <div class="edu-cta">View Details <i class="fas fa-arrow-right"></i></div>
-          </div>
+          <p class="edu-note">Top 5 of class · Click to see subjects and scores</p>
         </div>
 
-        <div class="edu-card" onclick="openEdu('bca')">
-          <div class="edu-card-left">
-            <div class="edu-icon">📖</div>
-            <div class="edu-line"></div>
+        <div class="edu-item" onclick="openModal('bca')">
+          <div class="edu-main">
+            <div>
+              <h3>Bachelor of Computer Applications</h3>
+              <span class="edu-uni">Calicut University</span>
+            </div>
+            <div class="edu-right">
+              <span class="edu-period">2019 – 2022</span>
+              <span class="edu-score">91%</span>
+            </div>
           </div>
-          <div class="edu-card-body">
-            <div class="edu-year-badge">2019 – 2022</div>
-            <h3>Bachelor of Computer Applications (BCA)</h3>
-            <div class="edu-uni">Calicut University</div>
-            <div class="edu-score">91% &nbsp;·&nbsp; University 3rd Rank</div>
-            <p class="edu-preview">Core CS fundamentals, programming, databases, and mathematics — click to explore subjects & scores.</p>
-            <div class="edu-cta">View Details <i class="fas fa-arrow-right"></i></div>
-          </div>
+          <p class="edu-note">University 3rd Rank · Chief Minister's Student Excellence Award · Click to see subjects and scores</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       SKILLS
-  ═══════════════════════════════════════════ -->
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-list">
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">AWS Skill Builder — Data Engineering & Cloud Learning Path</span><span class="cert-issuer">Amazon Web Services</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Data Engineering Professional Learning Path</span><span class="cert-issuer">Udemy — SQL, Python, Spark & Git</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Microsoft Certified: Azure AI Fundamentals (AI-900)</span><span class="cert-issuer">Microsoft</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Agentic AI</span><span class="cert-issuer">DeepLearning.AI</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Data Analytics and Visualization Job Simulation</span><span class="cert-issuer">Accenture</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Power BI Job Simulation</span><span class="cert-issuer">PwC Switzerland</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Joy of Computing Using Python</span><span class="cert-issuer">NPTEL / IIT Madras</span></div></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i><div><span class="cert-name">Database Management System</span><span class="cert-issuer">NPTEL / IIT Kharagpur</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
-      <div class="section-label">What I Work With</div>
       <h2 class="section-title">Skills</h2>
-
       <div class="skills-grid">
         <div class="skill-group">
-          <div class="skill-group-icon">☁️</div>
           <h4>AWS & Cloud</h4>
           <div class="skill-pills">
             <span>Lambda</span><span>DynamoDB</span><span>S3</span><span>Glue</span><span>Step Functions</span>
-            <span>EventBridge</span><span>OpenSearch</span><span>API Gateway</span><span>CloudWatch</span><span>IAM</span>
+            <span>EventBridge</span><span>OpenSearch</span><span>API Gateway</span><span>CloudWatch</span>
+            <span>IAM</span><span>RDS</span><span>Athena</span><span>EC2</span><span>SageMaker</span>
           </div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-icon">🐍</div>
           <h4>Languages & Data</h4>
           <div class="skill-pills">
             <span>Python</span><span>SQL</span><span>PySpark</span><span>Pandas</span><span>NumPy</span>
           </div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-icon">🤖</div>
           <h4>AI / ML</h4>
           <div class="skill-pills">
-            <span>Gemini API</span><span>TensorFlow</span><span>Scikit-learn</span><span>NLP</span><span>LSTM</span><span>Claude Code</span>
+            <span>Gemini API</span><span>TensorFlow</span><span>Scikit-learn</span><span>NLP</span>
+            <span>LSTM</span><span>Claude Code</span><span>RAG</span><span>Prompt Engineering</span>
           </div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-icon">⚙️</div>
           <h4>DevOps & Infra</h4>
           <div class="skill-pills">
-            <span>Terraform</span><span>GitHub Actions</span><span>CI/CD</span><span>AWS OIDC</span><span>EC2</span>
+            <span>Terraform</span><span>GitHub Actions</span><span>CI/CD</span><span>AWS OIDC</span><span>Linux</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Databases</h4>
+          <div class="skill-pills">
+            <span>DynamoDB</span><span>PostgreSQL</span><span>MySQL</span><span>OpenSearch</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Other</h4>
+          <div class="skill-pills">
+            <span>REST APIs</span><span>ETL Design</span><span>Data Modeling</span><span>Pydantic</span>
+            <span>Flask</span><span>Streamlit</span><span>Power BI</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       CONTACT
-  ═══════════════════════════════════════════ -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <div class="section-label">Let's Connect</div>
-      <h2 class="section-title">Say Hello</h2>
-      <p class="section-sub">Whether it's a role, a collaboration, or just a chat about data — I'm always up for it.</p>
-      <div class="contact-row">
-        <a href="mailto:varshaunni24@gmail.com" class="contact-pill"><i class="fas fa-envelope"></i> varshaunni24@gmail.com</a>
-        <a href="https://linkedin.com" target="_blank" class="contact-pill"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com" target="_blank" class="contact-pill"><i class="fab fa-github"></i> GitHub</a>
-        <a href="tel:+916235404530" class="contact-pill"><i class="fas fa-phone"></i> +91 6235404530</a>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-list">
+        <a href="mailto:varshaunni24@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> varshaunni24@gmail.com</a>
+        <a href="tel:+916235404530" class="contact-item"><i class="fas fa-phone"></i> +91 6235404530</a>
+        <a href="https://linkedin.com/in/varshaunnikrishnan" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/VarshaUnniKrishnan24" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>Designed & built by <span>Varsha U</span> · Kerala, India</p>
+    <p>Varsha U · Palakkad, Kerala</p>
   </footer>
 
-  <!-- ═══════════════════════════════════════════
-       PROJECT MODAL
-  ═══════════════════════════════════════════ -->
+  <!-- PROJECT MODAL -->
   <div id="projectModal" class="modal-overlay" onclick="closeModal('projectModal')">
     <div class="modal-box" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal('projectModal')"><i class="fas fa-times"></i></button>
